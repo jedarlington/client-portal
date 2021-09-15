@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +34,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::resource('posts', PostController::class, [
     'names' => [
         'index' => 'posts'
+    ]
+]);
+
+Route::resource('clients', ClientController::class, [
+    'names' => [
+        'index' => 'clients'
     ]
 ]);
