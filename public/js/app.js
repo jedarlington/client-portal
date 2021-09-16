@@ -28913,9 +28913,37 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: ["data", "errors"],
   data: function data() {
-    return {};
+    return {
+      isOpen: false,
+      form: {
+        name: null
+      }
+    };
   },
-  methods: {}
+  methods: {
+    openModal: function openModal() {
+      this.isOpen = true;
+    },
+    closeModal: function closeModal() {
+      this.isOpen = false;
+      this.reset();
+    },
+    reset: function reset() {
+      this.form = {
+        name: null
+      };
+    },
+    save: function save(data) {
+      this.$inertia.post("/clients", data);
+
+      if (data.name == null || data.name == "" || typeof data.name === "undefined") {
+        this.openModal();
+      } else {
+        this.reset();
+        this.closeModal();
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -28966,7 +28994,7 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
     Welcome: _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
-  props: ['data', 'errors'],
+  props: ["data", "errors"],
   data: function data() {
     return {
       editMode: false,
@@ -28993,7 +29021,7 @@ __webpack_require__.r(__webpack_exports__);
       };
     },
     save: function save(data) {
-      this.$inertia.post('/posts', data);
+      this.$inertia.post("/posts", data);
       this.reset();
       this.closeModal();
       this.editMode = false;
@@ -29004,15 +29032,15 @@ __webpack_require__.r(__webpack_exports__);
       this.openModal();
     },
     update: function update(data) {
-      data._method = 'PUT';
-      this.$inertia.post('/posts/' + data.id, data);
+      data._method = "PUT";
+      this.$inertia.post("/posts/" + data.id, data);
       this.reset();
       this.closeModal();
     },
     deleteRow: function deleteRow(data) {
-      if (!confirm('Are you sure want to remove?')) return;
-      data._method = 'DELETE';
-      this.$inertia.post('/posts/' + data.id, data);
+      if (!confirm("Are you sure want to remove?")) return;
+      data._method = "DELETE";
+      this.$inertia.post("/posts/" + data.id, data);
       this.reset();
       this.closeModal();
     }
@@ -32827,23 +32855,77 @@ var _hoisted_3 = {
   "class": "\n                    max-w-7xl\n                    mx-auto\n                    grid\n                    px-4\n                    gap-4\n                    sm:px-6\n                    md:grid-cols-2\n                    lg:px-8 lg:grid-cols-3\n                "
 };
 var _hoisted_4 = {
-  "class": "bg-white p-4 pointer text-center"
-};
-var _hoisted_5 = {
   "class": "w-1/4 mx-auto my-8"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-xl"
-}, " Add Client ", -1
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-xl text-gray-600"
+}, "Add Client", -1
 /* HOISTED */
 );
 
-var _hoisted_7 = {
+var _hoisted_6 = {
   "class": "w-1/4 mx-auto my-8"
 };
+var _hoisted_7 = {
+  "class": "text-xl text-gray-600"
+};
 var _hoisted_8 = {
-  "class": "text-xl"
+  key: 0,
+  "class": "\n                        fixed\n                        z-10\n                        inset-0\n                        overflow-y-auto\n                        ease-out\n                        duration-400\n                    "
+};
+var _hoisted_9 = {
+  "class": "\n                            flex\n                            items-end\n                            justify-center\n                            min-h-screen\n                            pt-4\n                            px-4\n                            pb-20\n                            text-center\n                            sm:block sm:p-0\n                        "
+};
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "fixed inset-0 transition-opacity"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "absolute inset-0 bg-gray-500 opacity-75"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "\n                                hidden\n                                sm:inline-block sm:align-middle sm:h-screen\n                            "
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("​ ");
+
+var _hoisted_13 = {
+  "class": "\n                                inline-block\n                                align-bottom\n                                bg-white\n                                rounded-lg\n                                text-left\n                                overflow-hidden\n                                shadow-xl\n                                transform\n                                transition-all\n                                sm:my-8 sm:align-middle sm:max-w-lg sm:w-full\n                            ",
+  role: "dialog",
+  "aria-modal": "true",
+  "aria-labelledby": "modal-headline"
+};
+var _hoisted_14 = {
+  "class": "\n                                        bg-white\n                                        px-4\n                                        pt-5\n                                        pb-4\n                                        sm:p-6 sm:pb-4\n                                    "
+};
+var _hoisted_15 = {
+  "class": ""
+};
+var _hoisted_16 = {
+  "class": "mb-4"
+};
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "name",
+  "class": "\n                                                    block\n                                                    text-gray-700 text-sm\n                                                    font-bold\n                                                    mb-2\n                                                "
+}, "Name:", -1
+/* HOISTED */
+);
+
+var _hoisted_18 = {
+  key: 0,
+  "class": "text-red-500 mt-4"
+};
+var _hoisted_19 = {
+  "class": "\n                                        bg-gray-50\n                                        px-4\n                                        py-3\n                                        sm:px-6 sm:flex sm:flex-row-reverse\n                                    "
+};
+var _hoisted_20 = {
+  "class": "\n                                            flex\n                                            w-full\n                                            rounded-md\n                                            shadow-sm\n                                            sm:ml-3 sm:w-auto\n                                        "
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_FolderAddIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FolderAddIcon");
@@ -32857,16 +32939,40 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_1];
     }),
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FolderAddIcon)]), _hoisted_6]), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.data, function (client, index) {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Add Client "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        onClick: _cache[0] || (_cache[0] = function ($event) {
+          return $options.openModal();
+        }),
+        "class": "bg-white p-4 cursor-pointer text-center"
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FolderAddIcon)]), _hoisted_5]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" List Clients "), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.data, function (client, index) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           key: index,
-          "class": "bg-white p-4 pointer text-center"
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FolderIcon)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(client.name), 1
+          "class": "bg-white p-4 cursor-pointer text-center"
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FolderIcon)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(client.name), 1
         /* TEXT */
         )]);
       }), 128
       /* KEYED_FRAGMENT */
-      ))])])];
+      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), $data.isOpen ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" This element is to trick the browser into centering the modal contents. "), _hoisted_11, _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Add Client Form "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+        type: "text",
+        "class": "\n                                                    shadow\n                                                    appearance-none\n                                                    border\n                                                    rounded\n                                                    w-full\n                                                    py-2\n                                                    px-3\n                                                    text-gray-700\n                                                    leading-tight\n                                                    focus:outline-none\n                                                    focus:shadow-outline\n                                                ",
+        id: "name",
+        placeholder: "Enter Name",
+        "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+          return $data.form.name = $event;
+        })
+      }, null, 512
+      /* NEED_PATCH */
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.name]]), _ctx.$page.props.errors && _ctx.$page.props.errors.name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.name), 1
+      /* TEXT */
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        "wire:click.prevent": "store()",
+        type: "button",
+        "class": "\n                                                inline-flex\n                                                justify-center\n                                                w-full\n                                                rounded-md\n                                                border border-transparent\n                                                px-4\n                                                py-2\n                                                bg-green-600\n                                                text-base\n                                                leading-6\n                                                font-medium\n                                                text-white\n                                                shadow-sm\n                                                hover:bg-green-500\n                                                focus:outline-none\n                                                focus:border-green-700\n                                                focus:shadow-outline-green\n                                                transition\n                                                ease-in-out\n                                                duration-150\n                                                sm:text-sm sm:leading-5\n                                            ",
+        onClick: _cache[2] || (_cache[2] = function ($event) {
+          return $options.save($data.form);
+        })
+      }, " Save ")])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])];
     }),
     _: 1
     /* STABLE */
@@ -32954,11 +33060,11 @@ var _hoisted_3 = {
   "class": "max-w-7xl mx-auto sm:px-6 lg:px-8"
 };
 var _hoisted_4 = {
-  "class": "bg-white overflow-hidden shadow-xl sm:rounded-lg px-4 py-4"
+  "class": "\n                        bg-white\n                        overflow-hidden\n                        shadow-xl\n                        sm:rounded-lg\n                        px-4\n                        py-4\n                    "
 };
 var _hoisted_5 = {
   key: 0,
-  "class": "bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3",
+  "class": "\n                            bg-teal-100\n                            border-t-4 border-teal-500\n                            rounded-b\n                            text-teal-900\n                            px-4\n                            py-3\n                            shadow-md\n                            my-3\n                        ",
   role: "alert"
 };
 var _hoisted_6 = {
@@ -33001,22 +33107,22 @@ var _hoisted_14 = ["onClick"];
 var _hoisted_15 = ["onClick"];
 var _hoisted_16 = {
   key: 1,
-  "class": "fixed z-10 inset-0 overflow-y-auto ease-out duration-400"
+  "class": "\n                            fixed\n                            z-10\n                            inset-0\n                            overflow-y-auto\n                            ease-out\n                            duration-400\n                        "
 };
 var _hoisted_17 = {
-  "class": "flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+  "class": "\n                                flex\n                                items-end\n                                justify-center\n                                min-h-screen\n                                pt-4\n                                px-4\n                                pb-20\n                                text-center\n                                sm:block sm:p-0\n                            "
 };
 
 var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "fixed inset-0 transition-opacity"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "absolute inset-0 bg-gray-500 opacity-75"
+  "class": "\n                                        absolute\n                                        inset-0\n                                        bg-gray-500\n                                        opacity-75\n                                    "
 })], -1
 /* HOISTED */
 );
 
 var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "hidden sm:inline-block sm:align-middle sm:h-screen"
+  "class": "\n                                    hidden\n                                    sm:inline-block sm:align-middle sm:h-screen\n                                "
 }, null, -1
 /* HOISTED */
 );
@@ -33024,13 +33130,13 @@ var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("​ ");
 
 var _hoisted_21 = {
-  "class": "inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full",
+  "class": "\n                                    inline-block\n                                    align-bottom\n                                    bg-white\n                                    rounded-lg\n                                    text-left\n                                    overflow-hidden\n                                    shadow-xl\n                                    transform\n                                    transition-all\n                                    sm:my-8\n                                    sm:align-middle\n                                    sm:max-w-lg\n                                    sm:w-full\n                                ",
   role: "dialog",
   "aria-modal": "true",
   "aria-labelledby": "modal-headline"
 };
 var _hoisted_22 = {
-  "class": "bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4"
+  "class": "\n                                            bg-white\n                                            px-4\n                                            pt-5\n                                            pb-4\n                                            sm:p-6 sm:pb-4\n                                        "
 };
 var _hoisted_23 = {
   "class": ""
@@ -33041,7 +33147,7 @@ var _hoisted_24 = {
 
 var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "exampleFormControlInput1",
-  "class": "block text-gray-700 text-sm font-bold mb-2"
+  "class": "\n                                                        block\n                                                        text-gray-700 text-sm\n                                                        font-bold\n                                                        mb-2\n                                                    "
 }, "Title:", -1
 /* HOISTED */
 );
@@ -33056,7 +33162,7 @@ var _hoisted_27 = {
 
 var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "exampleFormControlInput2",
-  "class": "block text-gray-700 text-sm font-bold mb-2"
+  "class": "\n                                                        block\n                                                        text-gray-700 text-sm\n                                                        font-bold\n                                                        mb-2\n                                                    "
 }, "Body:", -1
 /* HOISTED */
 );
@@ -33066,16 +33172,16 @@ var _hoisted_29 = {
   "class": "text-red-500"
 };
 var _hoisted_30 = {
-  "class": "bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse"
+  "class": "\n                                            bg-gray-50\n                                            px-4\n                                            py-3\n                                            sm:px-6 sm:flex sm:flex-row-reverse\n                                        "
 };
 var _hoisted_31 = {
-  "class": "flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto"
+  "class": "\n                                                flex\n                                                w-full\n                                                rounded-md\n                                                shadow-sm\n                                                sm:ml-3 sm:w-auto\n                                            "
 };
 var _hoisted_32 = {
-  "class": "flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto"
+  "class": "\n                                                flex\n                                                w-full\n                                                rounded-md\n                                                shadow-sm\n                                                sm:ml-3 sm:w-auto\n                                            "
 };
 var _hoisted_33 = {
-  "class": "mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto"
+  "class": "\n                                                mt-3\n                                                flex\n                                                w-full\n                                                rounded-md\n                                                shadow-sm\n                                                sm:mt-0 sm:w-auto\n                                            "
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_app_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-layout");
@@ -33091,8 +33197,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[0] || (_cache[0] = function ($event) {
           return $options.openModal();
         }),
-        "class": "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3"
-      }, "Create New Post"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.data, function (row) {
+        "class": "\n                            bg-blue-500\n                            hover:bg-blue-700\n                            text-white\n                            font-bold\n                            py-2\n                            px-4\n                            rounded\n                            my-3\n                        "
+      }, " Create New Post "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.data, function (row) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(row.id), 1
         /* TEXT */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(row.title), 1
@@ -33103,22 +33209,22 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: function onClick($event) {
             return $options.edit(row);
           },
-          "class": "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        }, "Edit", 8
+          "class": "\n                                            bg-blue-500\n                                            hover:bg-blue-700\n                                            text-white\n                                            font-bold\n                                            py-2\n                                            px-4\n                                            rounded\n                                        "
+        }, " Edit ", 8
         /* PROPS */
         , _hoisted_14), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
           onClick: function onClick($event) {
             return $options.deleteRow(row);
           },
-          "class": "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-        }, "Delete", 8
+          "class": "\n                                            bg-red-500\n                                            hover:bg-red-700\n                                            text-white\n                                            font-bold\n                                            py-2\n                                            px-4\n                                            rounded\n                                        "
+        }, " Delete ", 8
         /* PROPS */
         , _hoisted_15)])]);
       }), 256
       /* UNKEYED_FRAGMENT */
       ))])]), $data.isOpen ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" This element is to trick the browser into centering the modal contents. "), _hoisted_19, _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_24, [_hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "text",
-        "class": "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+        "class": "\n                                                        shadow\n                                                        appearance-none\n                                                        border\n                                                        rounded\n                                                        w-full\n                                                        py-2\n                                                        px-3\n                                                        text-gray-700\n                                                        leading-tight\n                                                        focus:outline-none\n                                                        focus:shadow-outline\n                                                    ",
         id: "exampleFormControlInput1",
         placeholder: "Enter Title",
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
@@ -33129,7 +33235,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.title]]), _ctx.$page.errors && _ctx.$page.errors.title ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_26, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.errors.title[0]), 1
       /* TEXT */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_27, [_hoisted_28, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
-        "class": "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+        "class": "\n                                                        shadow\n                                                        appearance-none\n                                                        border\n                                                        rounded\n                                                        w-full\n                                                        py-2\n                                                        px-3\n                                                        text-gray-700\n                                                        leading-tight\n                                                        focus:outline-none\n                                                        focus:shadow-outline\n                                                    ",
         id: "exampleFormControlInput2",
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return $data.form.body = $event;
@@ -33142,7 +33248,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_31, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         "wire:click.prevent": "store()",
         type: "button",
-        "class": "inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5",
+        "class": "\n                                                    inline-flex\n                                                    justify-center\n                                                    w-full\n                                                    rounded-md\n                                                    border border-transparent\n                                                    px-4\n                                                    py-2\n                                                    bg-green-600\n                                                    text-base\n                                                    leading-6\n                                                    font-medium\n                                                    text-white\n                                                    shadow-sm\n                                                    hover:bg-green-500\n                                                    focus:outline-none\n                                                    focus:border-green-700\n                                                    focus:shadow-outline-green\n                                                    transition\n                                                    ease-in-out\n                                                    duration-150\n                                                    sm:text-sm sm:leading-5\n                                                ",
         onClick: _cache[3] || (_cache[3] = function ($event) {
           return $options.save($data.form);
         })
@@ -33151,7 +33257,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, !$data.editMode]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         "wire:click.prevent": "store()",
         type: "button",
-        "class": "inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5",
+        "class": "\n                                                    inline-flex\n                                                    justify-center\n                                                    w-full\n                                                    rounded-md\n                                                    border border-transparent\n                                                    px-4\n                                                    py-2\n                                                    bg-green-600\n                                                    text-base\n                                                    leading-6\n                                                    font-medium\n                                                    text-white\n                                                    shadow-sm\n                                                    hover:bg-green-500\n                                                    focus:outline-none\n                                                    focus:border-green-700\n                                                    focus:shadow-outline-green\n                                                    transition\n                                                    ease-in-out\n                                                    duration-150\n                                                    sm:text-sm sm:leading-5\n                                                ",
         onClick: _cache[4] || (_cache[4] = function ($event) {
           return $options.update($data.form);
         })
@@ -33162,7 +33268,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           return $options.closeModal();
         }),
         type: "button",
-        "class": "inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5"
+        "class": "\n                                                    inline-flex\n                                                    justify-center\n                                                    w-full\n                                                    rounded-md\n                                                    border border-gray-300\n                                                    px-4\n                                                    py-2\n                                                    bg-white\n                                                    text-base\n                                                    leading-6\n                                                    font-medium\n                                                    text-gray-700\n                                                    shadow-sm\n                                                    hover:text-gray-500\n                                                    focus:outline-none\n                                                    focus:border-blue-300\n                                                    focus:shadow-outline-blue\n                                                    transition\n                                                    ease-in-out\n                                                    duration-150\n                                                    sm:text-sm sm:leading-5\n                                                "
       }, " Cancel ")])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])])];
     }),
     _: 1

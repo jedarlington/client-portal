@@ -24,4 +24,24 @@ class ClientController extends Controller
         $data = Client::all();
         return Inertia::render('Clients', ['data' => $data]);
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+        // dd($request->all());
+
+        Validator::make($request->all(), [
+            'name' => ['required', 'string', 'min:1']
+        ])->validate();
+
+        Client::create($request->all());
+
+        session()->flash('flash.banner', 'Client Created Successfully.');
+
+        return redirect()->back();
+    }
 }
