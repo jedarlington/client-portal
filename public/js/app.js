@@ -28899,7 +28899,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../Layouts/AppLayout */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../Jetstream/Welcome */ "./resources/js/Jetstream/Welcome.vue");
-/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/index.js");
+/* harmony import */ var _Jetstream_NavLink_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/NavLink.vue */ "./resources/js/Jetstream/NavLink.vue");
+/* harmony import */ var _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @heroicons/vue/outline */ "./node_modules/@heroicons/vue/outline/esm/index.js");
+
 
 
 
@@ -28908,8 +28910,9 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
     Welcome: _Jetstream_Welcome__WEBPACK_IMPORTED_MODULE_1__["default"],
-    FolderIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_2__.FolderIcon,
-    FolderAddIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_2__.FolderAddIcon
+    JetNavLink: _Jetstream_NavLink_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    FolderIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_3__.FolderIcon,
+    FolderAddIcon: _heroicons_vue_outline__WEBPACK_IMPORTED_MODULE_3__.FolderAddIcon
   },
   props: ["data", "errors"],
   data: function data() {
@@ -28942,6 +28945,10 @@ __webpack_require__.r(__webpack_exports__);
         this.reset();
         this.closeModal();
       }
+    },
+    edit: function edit(data) {
+      this.form = Object.assign({}, data);
+      this.openModal();
     }
   }
 });
@@ -32864,21 +32871,22 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_6 = {
+var _hoisted_6 = ["onClick"];
+var _hoisted_7 = {
   "class": "w-1/4 mx-auto my-8"
 };
-var _hoisted_7 = {
+var _hoisted_8 = {
   "class": "text-xl text-gray-600"
 };
-var _hoisted_8 = {
+var _hoisted_9 = {
   key: 0,
   "class": "\n                        fixed\n                        z-10\n                        inset-0\n                        overflow-y-auto\n                        ease-out\n                        duration-400\n                    "
 };
-var _hoisted_9 = {
+var _hoisted_10 = {
   "class": "\n                            flex\n                            items-end\n                            justify-center\n                            min-h-screen\n                            pt-4\n                            px-4\n                            pb-20\n                            text-center\n                            sm:block sm:p-0\n                        "
 };
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "fixed inset-0 transition-opacity"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "absolute inset-0 bg-gray-500 opacity-75"
@@ -32886,49 +32894,49 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "\n                                hidden\n                                sm:inline-block sm:align-middle sm:h-screen\n                            "
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("​ ");
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("​ ");
 
-var _hoisted_13 = {
+var _hoisted_14 = {
   "class": "\n                                inline-block\n                                align-bottom\n                                bg-white\n                                rounded-lg\n                                text-left\n                                overflow-hidden\n                                shadow-xl\n                                transform\n                                transition-all\n                                sm:my-8 sm:align-middle sm:max-w-lg sm:w-full\n                            ",
   role: "dialog",
   "aria-modal": "true",
   "aria-labelledby": "modal-headline"
 };
-var _hoisted_14 = {
+var _hoisted_15 = {
   "class": "\n                                        bg-white\n                                        px-4\n                                        pt-5\n                                        pb-4\n                                        sm:p-6 sm:pb-4\n                                    "
 };
-var _hoisted_15 = {
+var _hoisted_16 = {
   "class": ""
 };
-var _hoisted_16 = {
+var _hoisted_17 = {
   "class": "mb-4"
 };
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
   "for": "name",
   "class": "\n                                                    block\n                                                    text-gray-700 text-sm\n                                                    font-bold\n                                                    mb-2\n                                                "
 }, "Name:", -1
 /* HOISTED */
 );
 
-var _hoisted_18 = {
+var _hoisted_19 = {
   key: 0,
   "class": "text-red-500 mt-4"
 };
-var _hoisted_19 = {
+var _hoisted_20 = {
   "class": "\n                                        bg-gray-50\n                                        px-4\n                                        py-3\n                                        sm:px-6 sm:flex sm:flex-row-reverse\n                                    "
 };
-var _hoisted_20 = {
+var _hoisted_21 = {
   "class": "\n                                            flex\n                                            w-full\n                                            rounded-md\n                                            shadow-sm\n                                            sm:ml-3 sm:w-auto\n                                        "
 };
-var _hoisted_21 = {
-  "class": "\n                                                mt-3\n                                                flex\n                                                w-full\n                                                rounded-md\n                                                shadow-sm\n                                                sm:mt-0 sm:w-auto\n                                            "
+var _hoisted_22 = {
+  "class": "\n                                            mt-3\n                                            flex\n                                            w-full\n                                            rounded-md\n                                            shadow-sm\n                                            sm:mt-0 sm:w-auto\n                                        "
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_FolderAddIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FolderAddIcon");
@@ -32949,14 +32957,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "bg-white p-4 cursor-pointer text-center"
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FolderAddIcon)]), _hoisted_5]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" List Clients "), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.data, function (client, index) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+          "wire:click.prevent": "store()",
           key: index,
-          "class": "bg-white p-4 cursor-pointer text-center"
-        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FolderIcon)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(client.name), 1
+          "class": "client bg-white p-4 cursor-pointer text-center"
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+          onClick: function onClick($event) {
+            return $options.edit(client);
+          }
+        }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_FolderIcon)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(client.name), 1
         /* TEXT */
-        )]);
+        )], 8
+        /* PROPS */
+        , _hoisted_6)]);
       }), 128
       /* KEYED_FRAGMENT */
-      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), $data.isOpen ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" This element is to trick the browser into centering the modal contents. "), _hoisted_11, _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Add Client Form "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+      )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), $data.isOpen ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" This element is to trick the browser into centering the modal contents. "), _hoisted_12, _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Add Client Form "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
         type: "text",
         "class": "\n                                                    shadow\n                                                    appearance-none\n                                                    border\n                                                    rounded\n                                                    w-full\n                                                    py-2\n                                                    px-3\n                                                    text-gray-700\n                                                    leading-tight\n                                                    focus:outline-none\n                                                    focus:shadow-outline\n                                                ",
         id: "name",
@@ -32966,21 +32981,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         })
       }, null, 512
       /* NEED_PATCH */
-      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.name]]), _ctx.$page.props.errors && _ctx.$page.props.errors.name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.name), 1
+      ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.form.name]]), _ctx.$page.props.errors && _ctx.$page.props.errors.name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.errors.name), 1
       /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         "wire:click.prevent": "store()",
         type: "button",
         "class": "\n                                                inline-flex\n                                                justify-center\n                                                w-full\n                                                rounded-md\n                                                border border-transparent\n                                                px-4\n                                                py-2\n                                                bg-green-600\n                                                text-base\n                                                leading-6\n                                                font-medium\n                                                text-white\n                                                shadow-sm\n                                                hover:bg-green-500\n                                                focus:outline-none\n                                                focus:border-green-700\n                                                focus:shadow-outline-green\n                                                transition\n                                                ease-in-out\n                                                duration-150\n                                                sm:text-sm sm:leading-5\n                                            ",
         onClick: _cache[2] || (_cache[2] = function ($event) {
           return $options.save($data.form);
         })
-      }, " Save ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      }, " Save ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         onClick: _cache[3] || (_cache[3] = function ($event) {
           return $options.closeModal();
         }),
         type: "button",
-        "class": "\n                                                    inline-flex\n                                                    justify-center\n                                                    w-full\n                                                    rounded-md\n                                                    border border-gray-300\n                                                    px-4\n                                                    py-2\n                                                    bg-white\n                                                    text-base\n                                                    leading-6\n                                                    font-medium\n                                                    text-gray-700\n                                                    shadow-sm\n                                                    hover:text-gray-500\n                                                    focus:outline-none\n                                                    focus:border-blue-300\n                                                    focus:shadow-outline-blue\n                                                    transition\n                                                    ease-in-out\n                                                    duration-150\n                                                    sm:text-sm sm:leading-5\n                                                "
+        "class": "\n                                                inline-flex\n                                                justify-center\n                                                w-full\n                                                rounded-md\n                                                border border-gray-300\n                                                px-4\n                                                py-2\n                                                bg-white\n                                                text-base\n                                                leading-6\n                                                font-medium\n                                                text-gray-700\n                                                shadow-sm\n                                                hover:text-gray-500\n                                                focus:outline-none\n                                                focus:border-blue-300\n                                                focus:shadow-outline-blue\n                                                transition\n                                                ease-in-out\n                                                duration-150\n                                                sm:text-sm sm:leading-5\n                                            "
       }, " Cancel ")])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])];
     }),
     _: 1

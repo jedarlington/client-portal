@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+// use App\Models\User;
 use App\Models\Client;
 use Illuminate\Support\Facades\Validator;
 
@@ -22,6 +23,7 @@ class ClientController extends Controller
     public function index()
     {
         $data = Client::all();
+
         return Inertia::render('Clients', ['data' => $data]);
     }
 
@@ -37,6 +39,15 @@ class ClientController extends Controller
         Validator::make($request->all(), [
             'name' => ['required', 'string', 'min:1']
         ])->validate();
+
+        // $user = [
+        //     'name' => 'Audi',
+        //     'email' => 'info@audi.com',
+        //     'password' => 'password',
+        //     'role' => 'client'
+        // ];
+
+        // User::create($user);
 
         Client::create($request->all());
 

@@ -5,3 +5,11 @@
 svg {
     color: #4b5563;
 }
+
+/**
+* Clients
+*/
+.client > a {
+    border: none;
+    display: block;
+}
