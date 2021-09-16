@@ -32927,6 +32927,9 @@ var _hoisted_19 = {
 var _hoisted_20 = {
   "class": "\n                                            flex\n                                            w-full\n                                            rounded-md\n                                            shadow-sm\n                                            sm:ml-3 sm:w-auto\n                                        "
 };
+var _hoisted_21 = {
+  "class": "\n                                                mt-3\n                                                flex\n                                                w-full\n                                                rounded-md\n                                                shadow-sm\n                                                sm:mt-0 sm:w-auto\n                                            "
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_FolderAddIcon = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("FolderAddIcon");
 
@@ -32972,7 +32975,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[2] || (_cache[2] = function ($event) {
           return $options.save($data.form);
         })
-      }, " Save ")])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])];
+      }, " Save ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        onClick: _cache[3] || (_cache[3] = function ($event) {
+          return $options.closeModal();
+        }),
+        type: "button",
+        "class": "\n                                                    inline-flex\n                                                    justify-center\n                                                    w-full\n                                                    rounded-md\n                                                    border border-gray-300\n                                                    px-4\n                                                    py-2\n                                                    bg-white\n                                                    text-base\n                                                    leading-6\n                                                    font-medium\n                                                    text-gray-700\n                                                    shadow-sm\n                                                    hover:text-gray-500\n                                                    focus:outline-none\n                                                    focus:border-blue-300\n                                                    focus:shadow-outline-blue\n                                                    transition\n                                                    ease-in-out\n                                                    duration-150\n                                                    sm:text-sm sm:leading-5\n                                                "
+      }, " Cancel ")])])])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])];
     }),
     _: 1
     /* STABLE */
