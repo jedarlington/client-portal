@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\LandingPageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::group(['middleware' => 'auth'], function() {
+    Route::get('clients/landing-pages/{clientId}', [LandingPageController::class, 'index'])->name('clients/landing-pages');
     Route::resource('clients', ClientController::class);
 });
 
