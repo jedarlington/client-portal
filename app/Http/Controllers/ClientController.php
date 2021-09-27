@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Client;
+use View;
 
 class ClientController extends Controller
 {
@@ -13,7 +15,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return 'jim';
+        $clients = Client::all();
+
+        return View::make('clients.index')->with('clients', $clients);
     }
 
     /**
@@ -23,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('clients.create');
     }
 
     /**
@@ -34,7 +38,14 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        Client::create($request->all());
+
+        return redirect()->route('clients.index')
+            ->with('success', 'Client created successfully.');
     }
 
     /**
