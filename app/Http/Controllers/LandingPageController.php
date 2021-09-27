@@ -6,18 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\Client;
 use View;
 
-class ClientController extends Controller
+class LandingPageController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($clientId)
     {
-        $clients = Client::all();
+        $client = Client::where('id', $clientId)->first();
 
-        return View::make('clients.index')->with('clients', $clients);
+        return View::make('clients.landing-pages.index')->with('client', $client);
     }
 
     /**
@@ -27,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('clients.create');
+
     }
 
     /**
@@ -38,14 +38,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required'
-        ]);
 
-        Client::create($request->all());
-
-        return redirect()->route('clients.index')
-            ->with('success', 'Client created successfully.');
     }
 
     /**
@@ -56,7 +49,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('clients.show', compact('client'));
+
     }
 
     /**
