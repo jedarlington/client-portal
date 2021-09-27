@@ -15,13 +15,15 @@ use App\Http\Controllers\ClientController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('clients', ClientController::class);
+Route::group(['middleware' => 'auth'], function() {
+    Route::resource('clients', ClientController::class);
+});
 
 require __DIR__.'/auth.php';
