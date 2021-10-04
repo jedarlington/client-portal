@@ -17,7 +17,7 @@ class ClientController extends Controller
     {
         $clients = Client::all();
 
-        return View::make('clients.index')->with('clients', $clients);
+        return view('clients.index', compact('clients'));
     }
 
     /**
@@ -88,8 +88,11 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
-        //
+        $client->delete();
+
+        return redirect()->route('clients.index')
+            ->with('success', 'Client deleted successfully.');
     }
 }
