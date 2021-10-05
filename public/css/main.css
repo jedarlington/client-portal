@@ -1,0 +1,8 @@
+.client {
+    min-height: 20rem;
+    border: none !important;
+}
+
+.client:hover {
+    border: none !important;
+}
