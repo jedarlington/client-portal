@@ -32136,6 +32136,12 @@ select {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Client - Show */
+
+.client-show .button {
+  font-weight: bold !important;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -188570,4 +188576,5 @@ select {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
+
 
