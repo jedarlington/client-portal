@@ -1,3 +1,14 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/* Button */
+.button:hover {
+    background: darken(inherit, 10%);
+}
+
+/* Client - Show */
+.client-show .button {
+    font-weight: bold !important;
+}
+

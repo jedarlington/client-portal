@@ -17,7 +17,7 @@ class LandingPageController extends Controller
     {
         $client = Client::where('id', $clientId)->first();
 
-        return View::make('clients.landing-pages.index')->with('client', $client);
+        return View::make('client.landing-pages.index')->with('client', $client);
     }
 
     /**

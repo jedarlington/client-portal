@@ -2184,7 +2184,7 @@
                     "homepage": "http://www.php-fig.org/"
                 }
             ],
-            "description": "Common interface for HTTP clients",
+            "description": "Common interface for HTTP client",
             "homepage": "https://github.com/php-fig/http-client",
             "keywords": [
                 "http",
@@ -3351,7 +3351,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Generic abstractions related to HTTP clients",
+            "description": "Generic abstractions related to HTTP client",
             "homepage": "https://symfony.com",
             "keywords": [
                 "abstractions",
