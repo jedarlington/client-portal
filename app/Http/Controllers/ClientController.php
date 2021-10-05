@@ -15,9 +15,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
+        $client = Client::all();
 
-        return view('clients.index', compact('clients'));
+        return view('client.index', compact('client'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('clients.create');
+        return view('client.create');
     }
 
     /**
@@ -44,7 +44,7 @@ class ClientController extends Controller
 
         Client::create($request->all());
 
-        return redirect()->route('clients.index')
+        return redirect()->route('client.index')
             ->with('success', 'Client created successfully.');
     }
 
@@ -56,7 +56,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('clients.show', compact('client'));
+        return view('client.show', compact('client'));
     }
 
     /**
@@ -67,7 +67,9 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client = Client::findOrFail($id);
+
+        return view('client.edit', compact('client'));
     }
 
     /**
@@ -79,7 +81,14 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+
+        Client::whereId($id)->update($request->except('_method', '_token'));
+
+        return redirect()->route('client.index')
+            ->with('success', 'Client updated successfully.');
     }
 
     /**
@@ -92,7 +101,7 @@ class ClientController extends Controller
     {
         $client->delete();
 
-        return redirect()->route('clients.index')
+        return redirect()->route('client.index')
             ->with('success', 'Client deleted successfully.');
     }
 }
