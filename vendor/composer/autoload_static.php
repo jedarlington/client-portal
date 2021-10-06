@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd9b2420fdce8db951069d5d7ca5b8317
+class ComposerStaticInit8bee7f5be7fbd554b7d1007d4073d163
 {
     public static $files = array (
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
@@ -1337,6 +1337,7 @@ class ComposerStaticInitd9b2420fdce8db951069d5d7ca5b8317
         'Faker\\Provider\\nl_BE\\Payment' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Payment.php',
         'Faker\\Provider\\nl_BE\\Person' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Person.php',
         'Faker\\Provider\\nl_BE\\PhoneNumber' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/PhoneNumber.php',
+        'Faker\\Provider\\nl_BE\\Text' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_BE/Text.php',
         'Faker\\Provider\\nl_NL\\Address' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Address.php',
         'Faker\\Provider\\nl_NL\\Color' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Color.php',
         'Faker\\Provider\\nl_NL\\Company' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/nl_NL/Company.php',
@@ -5341,6 +5342,11 @@ class ComposerStaticInitd9b2420fdce8db951069d5d7ca5b8317
         'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
         'Symfony\\Polyfill\\Php81\\Php81' => __DIR__ . '/..' . '/symfony/polyfill-php81/Php81.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
+        'Tests\\Feature\\Auth\\AuthenticationTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/AuthenticationTest.php',
+        'Tests\\Feature\\Auth\\EmailVerificationTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/EmailVerificationTest.php',
+        'Tests\\Feature\\Auth\\PasswordConfirmationTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/PasswordConfirmationTest.php',
+        'Tests\\Feature\\Auth\\PasswordResetTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/PasswordResetTest.php',
+        'Tests\\Feature\\Auth\\RegistrationTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/RegistrationTest.php',
         'Tests\\Feature\\AuthenticationTest' => __DIR__ . '/../..' . '/tests/Feature/AuthenticationTest.php',
         'Tests\\Feature\\EmailVerificationTest' => __DIR__ . '/../..' . '/tests/Feature/EmailVerificationTest.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
@@ -5472,10 +5478,10 @@ class ComposerStaticInitd9b2420fdce8db951069d5d7ca5b8317
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd9b2420fdce8db951069d5d7ca5b8317::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd9b2420fdce8db951069d5d7ca5b8317::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitd9b2420fdce8db951069d5d7ca5b8317::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitd9b2420fdce8db951069d5d7ca5b8317::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit8bee7f5be7fbd554b7d1007d4073d163::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit8bee7f5be7fbd554b7d1007d4073d163::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit8bee7f5be7fbd554b7d1007d4073d163::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit8bee7f5be7fbd554b7d1007d4073d163::$classMap;
 
         }, null, ClassLoader::class);
     }

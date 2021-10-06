@@ -12,4 +12,12 @@ class Client extends Model
     protected $fillable = [
         'name'
     ];
+
+    /**
+     * Get the landing pages for the client.
+     */
+    public function landingPages()
+    {
+        return $this->hasMany(LandingPage::class);
+    }
 }

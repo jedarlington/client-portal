@@ -30,7 +30,7 @@
             </x-nav-link>
 
             <!-- Landing pages link -->
-            <x-nav-link :href="route('client/landing-pages', $client->id)" :active="request()->routeIs('client')" class="client">
+            <x-nav-link :href="route('landing-page.index', $client->id)" :active="request()->routeIs('client')" class="client">
                 <div class="bg-white overflow-hidden shadow-sm cursor-pointer w-full sm:rounded-lg h-full">
                     <div class="p-6 bg-white border-b border-gray-200 h-full flex justify-center items-center text-3xl font-bold py-24">
                         Landing pages
