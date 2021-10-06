@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
-use View;
 
 class LandingPageController extends Controller
 {
@@ -17,7 +16,7 @@ class LandingPageController extends Controller
     {
         $client = Client::where('id', $clientId)->first();
 
-        return View::make('client.landing-pages.index')->with('client', $client);
+        return view('client.landing-pages.index', compact('client'));
     }
 
     /**

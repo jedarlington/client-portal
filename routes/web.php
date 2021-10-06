@@ -25,8 +25,8 @@ Route::get('/', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('client/landing-pages/{clientId}', [LandingPageController::class, 'index'])->name('client/landing-pages');
     Route::resource('client', ClientController::class);
+    Route::resource('landing-page', LandingPageController::class);
 });
 
 require __DIR__.'/auth.php';

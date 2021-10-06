@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class LandingPage extends Model
 {
     use HasFactory;
 
@@ -14,10 +14,10 @@ class Client extends Model
     ];
 
     /**
-     * Get the landing pages for the client.
+     * Get the client that owns the landing page.
      */
-    public function landingPages()
+    public function client()
     {
-        return $this->hasMany(LandingPage::class);
+        return $this->belongsTo(Client::class);
     }
 }
