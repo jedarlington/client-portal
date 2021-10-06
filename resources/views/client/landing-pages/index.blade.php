@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ $client->name }} {{ __('landing pages') }}
+            {{-- {{ $client->name }} {{ __('landing pages') }} --}} Landing pages
         </h2>
     </x-slot>
 
@@ -15,7 +15,7 @@
 
     <div class="container mx-auto p-4 my-4 lg:px-8">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <x-nav-link :href="route('client.create')" :active="request()->routeIs('client')" class="client">
+            <x-nav-link :href="route('landing-page.create')" :active="request()->routeIs('client')" class="client">
                 <div class="bg-white overflow-hidden shadow-sm cursor-pointer w-full sm:rounded-lg h-full">
                     <div class="p-6 bg-white border-b border-gray-200 py-12 h-full flex justify-center items-center">
                         <img src="{{ asset('/icons/plus.svg') }}" class="w-1/3 mx-auto" />

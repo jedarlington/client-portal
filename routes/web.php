@@ -24,9 +24,12 @@ Route::get('/', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('client/landing-pages/{id}', [LandingPageController::class, 'index'])->name('client.list-client-landing-pages');
+
+    // Resources.
     Route::resource('client', ClientController::class);
     Route::resource('landing-page', LandingPageController::class);
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

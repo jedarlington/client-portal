@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Client;
+use App\Models\LandingPage;
 
 class LandingPageController extends Controller
 {
@@ -14,9 +14,11 @@ class LandingPageController extends Controller
      */
     public function index($clientId)
     {
-        $client = Client::where('id', $clientId)->first();
+        $landing_pages = LandingPage::all();
 
-        return view('client.landing-pages.index', compact('client'));
+        dd($landing_pages);
+
+        return view('client.landing-pages.index', compact('landing_page'));
     }
 
     /**
